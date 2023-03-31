@@ -41,8 +41,8 @@ public class AndroidBaseTest {
             //caps.setCapability("app", System.getenv("BITRISE_APK_PATH"));
 
             caps.setCapability("appium:automationName", "espresso");
-            caps.setCapability("appium:platformVersion", "9");
-            caps.setCapability("appium:deviceName", "Android Emulator");
+            caps.setCapability("appium:platformVersion", "8");
+            caps.setCapability("appium:deviceName", "emulator-5554");
             caps.setCapability("platformName", "Android");
             caps.setCapability("appium:app", System.getenv("BITRISE_APK_PATH"));
             driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), caps);
