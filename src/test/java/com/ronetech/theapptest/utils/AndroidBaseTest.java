@@ -20,26 +20,35 @@ public class AndroidBaseTest {
     @BeforeClass(alwaysRun = true)
     public void setUp() throws MalformedURLException {
         final DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platformName", "android");
-        caps.setCapability("automationName", "UiAutomator2");
-        caps.setCapability("noReset", true);
 
         if (System.getenv("BITRISE_APK_PATH") == null) {
             // Local Appium Server
+            caps.setCapability("platformName", "android");
+            caps.setCapability("automationName", "UiAutomator2");
+            caps.setCapability("noReset", true);
             caps.setCapability("deviceName", "Pixel 4 API 30");
             caps.setCapability("skipServerInstallation", false);
             caps.setCapability("appPackage", "com.ronetech.theapp");
             caps.setCapability("appActivity", "com.ronetech.theapp.ui.login.LoginActivity");
             caps.setCapability("app", System.getProperty("user.dir") + "/src/test/java/com/ronetech/theapptest/resources/app-debug.apk");
+            driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), caps);
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         } else {
             //Bitrise Config
-            caps.setCapability("uiautomator2ServerLaunchTimeout", 90000);
-            caps.setCapability("platformVersion", "9");
-            caps.setCapability("deviceName", "Android Emulator");
-            caps.setCapability("app", System.getenv("BITRISE_APK_PATH"));
+            //caps.setCapability("uiautomator2ServerLaunchTimeout", 90000);
+            //caps.setCapability("platformVersion", "9");
+            //caps.setCapability("deviceName", "Android Emulator");
+            //caps.setCapability("app", System.getenv("BITRISE_APK_PATH"));
+
+            caps.setCapability("appium:automationName", "espresso");
+            caps.setCapability("appium:platformVersion", "9");
+            caps.setCapability("appium:deviceName", "Android Emulator");
+            caps.setCapability("platformName", "Android");
+            caps.setCapability("appium:app", System.getenv("BITRISE_APK_PATH"));
+            driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), caps);
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         }
-        driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), caps);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
     }
 
     @AfterClass(alwaysRun = true)

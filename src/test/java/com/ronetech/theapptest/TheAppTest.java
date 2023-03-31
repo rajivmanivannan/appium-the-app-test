@@ -6,7 +6,7 @@ import com.ronetech.theapptest.utils.AndroidBaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class SmokeTest extends AndroidBaseTest {
+public class TheAppTest extends AndroidBaseTest {
 
     @Test(description = "Verify that a user cannot login to the application with invalid credentials",groups= {"Smoke"})
     public void testInvalidLogin() {

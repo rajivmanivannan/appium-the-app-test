@@ -5,9 +5,9 @@
         <listener class-name="com.ronetech.theapptest.utils.TestListener"/>
     </listeners>
 
-    <test  name="Regression">
+    <test  name="testsuites">
         <classes>
-            <class name="com.ronetech.theapptest.RegressionTest"/>
+            <class name="com.ronetech.theapptest.TheAppTest"/>
         </classes>
     </test>  <!-- Test -->
 </suite>
