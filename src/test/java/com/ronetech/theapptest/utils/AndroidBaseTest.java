@@ -17,14 +17,13 @@ public class AndroidBaseTest {
     public AndroidDriver driver;
     public AppiumDriverLocalService service;
 
-     boolean runLocally = true;
+     boolean runLocally = false;
     @BeforeClass(alwaysRun = true)
     public void setUp() throws MalformedURLException {
         final DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("platformName", "android");
         caps.setCapability("automationName", "UiAutomator2");
         caps.setCapability("noReset", true);
-
         // Local Appium Server
         if (runLocally) {
             caps.setCapability("deviceName", "Pixel 4 API 30");
