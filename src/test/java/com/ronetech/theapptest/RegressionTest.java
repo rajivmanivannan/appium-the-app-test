@@ -6,9 +6,9 @@ import com.ronetech.theapptest.utils.AndroidBaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginActivityTest extends AndroidBaseTest {
+public class RegressionTest extends AndroidBaseTest {
 
-    @Test(description = "Verify that a user cannot login to the application with invalid credentials")
+    @Test(description = "Verify that a user cannot login to the application with invalid credentials", groups = {"Regression"})
     public void testInvalidLogin() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login("Bob", "123");
@@ -21,5 +21,4 @@ public class LoginActivityTest extends AndroidBaseTest {
         HomePage homePage = new HomePage(driver);
         Assert.assertEquals(homePage.getHomeLabelText(), "This is home Fragment");
     }
-
 }
