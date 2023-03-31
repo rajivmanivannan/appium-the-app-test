@@ -5,7 +5,7 @@
         <listener class-name="com.ronetech.theapptest.utils.TestListener"/>
     </listeners>
 
-    <test  name="Android">
+    <test  name="Smoke">
         <classes>
             <class name="com.ronetech.theapptest.SmokeTest"/>
         </classes>
