@@ -35,11 +35,6 @@ public class AndroidBaseTest {
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         } else {
             //Bitrise Config
-            //caps.setCapability("uiautomator2ServerLaunchTimeout", 90000);
-            //caps.setCapability("platformVersion", "9");
-            //caps.setCapability("deviceName", "Android Emulator");
-            //caps.setCapability("app", System.getenv("BITRISE_APK_PATH"));
-
             caps.setCapability("appium:automationName", "espresso");
             caps.setCapability("appium:platformVersion", "8");
             caps.setCapability("appium:deviceName", "emulator-5554");
