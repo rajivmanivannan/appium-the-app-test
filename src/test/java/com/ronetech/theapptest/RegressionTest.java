@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class RegressionTest extends AndroidBaseTest {
 
-    @Test(description = "Verify that a user cannot login to the application with invalid credentials", groups = {"Regression"})
+    @Test(description = "Verify that a user cannot login to the application with invalid credentials")
     public void testInvalidLogin() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login("Bob", "123");

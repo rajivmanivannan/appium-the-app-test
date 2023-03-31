@@ -23,7 +23,7 @@ public class AndroidBaseTest {
         caps.setCapability("platformName", "android");
         caps.setCapability("automationName", "UiAutomator2");
         caps.setCapability("noReset", true);
-       
+
         if (System.getenv("BITRISE_APK_PATH") == null) {
             // Local Appium Server
             caps.setCapability("deviceName", "Pixel 4 API 30");
